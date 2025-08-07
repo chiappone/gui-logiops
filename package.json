@@ -1,0 +1,101 @@
+{
+  "name": "logiops-gui",
+  "version": "1.0.0",
+  "description": "A modern GUI for configuring Logitech devices with logiops",
+  "main": "dist/main/main.js",
+  "homepage": "./",
+  "scripts": {
+    "build": "npm run build:main && npm run build:renderer",
+    "build:main": "tsc --project tsconfig.main.json",
+    "build:renderer": "webpack --mode=production",
+    "dev": "concurrently \"npm run dev:renderer\" \"wait-on http://localhost:3001 && npm run dev:main\"",
+    "dev:main": "tsc --project tsconfig.main.json && electron dist/main/main.js",
+    "dev:renderer": "webpack serve --mode=development",
+    "lint": "eslint src --ext .ts,.tsx",
+    "lint:fix": "eslint src --ext .ts,.tsx --fix",
+    "test": "vitest",
+    "test:run": "vitest run",
+    "test:ui": "vitest --ui",
+    "pack": "electron-builder --dir",
+    "dist": "npm run build && electron-builder",
+    "postinstall": "electron-builder install-app-deps"
+  },
+  "keywords": [
+    "logiops",
+    "logitech",
+    "linux",
+    "gui",
+    "electron",
+    "configuration"
+  ],
+  "author": "Logiops GUI Contributors",
+  "license": "MIT",
+  "build": {
+    "appId": "com.logiops.gui",
+    "productName": "Logiops GUI",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "assets/**/*"
+    ],
+    "linux": {
+      "target": [
+        {
+          "target": "AppImage",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "deb",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "rpm",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "category": "Utility"
+    }
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.32.0",
+    "@testing-library/jest-dom": "^6.6.4",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/node": "^24.2.0",
+    "@types/react": "^19.1.9",
+    "@types/react-dom": "^19.1.7",
+    "@typescript-eslint/eslint-plugin": "^8.39.0",
+    "@typescript-eslint/parser": "^8.39.0",
+    "@vitest/ui": "^3.2.4",
+    "concurrently": "^9.2.0",
+    "copy-webpack-plugin": "^13.0.0",
+    "css-loader": "^7.1.2",
+    "electron": "^37.2.5",
+    "electron-builder": "^26.0.12",
+    "eslint": "^9.32.0",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "html-webpack-plugin": "^5.6.3",
+    "jsdom": "^26.1.0",
+    "style-loader": "^4.0.0",
+    "ts-loader": "^9.5.2",
+    "typescript": "^5.9.2",
+    "vitest": "^3.2.4",
+    "wait-on": "^8.0.4",
+    "webpack": "^5.101.0",
+    "webpack-cli": "^6.0.1",
+    "webpack-dev-server": "^5.2.2"
+  },
+  "dependencies": {
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1"
+  }
+}

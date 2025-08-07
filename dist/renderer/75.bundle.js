@@ -1,0 +1,2 @@
+"use strict";(global.webpackChunklogiops_gui=global.webpackChunklogiops_gui||[]).push([[75],{75:(i,u,l)=>{function n(i){return JSON.stringify(i,null,2)}l.d(u,{serializeConfiguration:()=>n})}}]);
+//# sourceMappingURL=75.bundle.js.map
