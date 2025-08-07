@@ -2,6 +2,8 @@
 
 A modern GUI application for configuring Logitech devices with logiops on Linux.
 
+This was a fun mostly vibe coded project that I wanted to build and see the capabilities of Kiro.
+
 ## Development Setup
 
 This project is built with Electron, React, and TypeScript.
