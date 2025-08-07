@@ -3,6 +3,11 @@
 /.pnp
 .pnp.*
 
+# Electron
+/node_modules/electron/dist
+/node_modules/electron/path.txt
+/node_modules/electron/install.js
+
 # Testing
 /coverage
 
